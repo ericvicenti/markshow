@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container">
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">MarkShow</a>
+            <div class="navbar-content">
+              <ul class="nav">
+                <li <%= (url.split('/readMe')[0]=='') ? 'class="active"' : '' %>>
+                  <a href="/readMe">How to use</a> 
+                </li>
+                <li <%= (url.split('/Examples')[0]=='') ? 'class="active"' : '' %>>
+                  <a href="/Examples">More Examples</a> 
+                </li>
+                <li <%= (url.split('/About')[0]=='') ? 'class="active"' : '' %>>
+                  <a href="/About">About</a> 
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+          <div>
+            <ul class="nav nav-list well">
+              <% _.each(links, function(link){ %>
+                <% if(link.name=='') return; %>
+                <% if(link.bold){ link.name = '<b>'+link.name+'</b>'; } %>
+                <li<%= link.active ? ' class="active"' : '' %>><a href="<%=link.url%>"><%=link.name%></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+        <div class="span8">
+          <%=body%>
+        </div>
+      </div>
+      <hr style="margin-top:50px;">
+    </div>
+  </div>
+  <div></div>
+  <div style="text-align: center; color: grey; margin-bottom: 50px; font-size: 12px;">Copyright &copy; 2012 XYZ</div>
+  </body>
+</html>

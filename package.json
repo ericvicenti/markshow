@@ -1,0 +1,15 @@
+{
+  "name": "markshow",
+  "version": "0.1.0",
+  "description": "A minimal mardown documentation server built with node, bootstrap and showdown.",
+  "author": "Eric Vicenti <ericvicenti@gmail.com>",
+  "dependencies": {
+    "underscore": "1.4.x",
+    "mime": "1.2.x",
+    "showdown": "0.2.x"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
