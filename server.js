@@ -11,6 +11,7 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 var _ = require('underscore');
+var mdDir = '/Documents';
 
 fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
@@ -24,7 +25,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       is_index = true;
       url += 'index';
     }
-    var filePath = __dirname + decodeURIComponent(url);
+    var filePath = __dirname + mdDir + decodeURIComponent(url);
     if(path.basename(filePath).split('.').length == 1){
       is_dir_possible = true;
       filePath += '.md';
