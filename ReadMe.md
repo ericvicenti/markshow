@@ -3,10 +3,10 @@
 A minimal server which displays a folder of mardown as a documentation website.
 
 
-## Installation
+## Demo
 
-MarkShow is tested on node v.8.x
+Test MarkShow at the following url, graciously hosted by Heroku for the time being.
 
-1. Download the repo
-2. `npm install`
-3. `node server`
+[http://markshow.herokuapp.com/](http://markshow.herokuapp.com/)
+
+If it goes down, check out the markdown files under `/Documents`

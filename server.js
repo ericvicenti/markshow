@@ -75,7 +75,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
           if(name.split('.md').length>1){
             name = name.slice(0,name.length-3);
           }
-          if(!_.contains(['bootstrap','package.json','server.js','favicon.ico','template.html','node_modules'],file)) links.push({
+          if(!_.contains(['bootstrap'],file)) links.push({
             name: name,
             url: name,
             active: req.url.split('/')[req.url.split('/').length-1]==name
@@ -126,6 +126,6 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
   });
   var port = process.env.PORT || 8888;
   server.listen(port);
-  console.log('DocServer started at http://localhost:'+port+'/');
+  console.log('MarkShow started at port '+port+'/');
 
 });
