@@ -123,7 +123,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       });
     });
   });
-  var port = 8888;
+  var port = process.env.PORT || 8888;
   server.listen(port);
   console.log('DocServer started at http://localhost:'+port+'/');
 
