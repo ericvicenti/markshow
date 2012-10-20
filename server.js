@@ -11,14 +11,17 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 var _ = require('underscore');
+var express = require('express');
+var app = express();
 var mdDir = '/Documents';
 
 fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
-  var server = http.createServer(function (req, res) {
+  app.use(function (req, res, next) {
     var is_index = false;
     var is_dir_possible = false;
     var is_dl = (req.url.split('/')[req.url.split('/').length-1].split('.').length > 1) && (req.url.split('.md').length == 1);
+    if(is_dl) next();
     var not_found_md = "# 404 - Not found! \n\n We couldn't find \""+req.url+"\". \n\n";
     var url = req.url;
     if(url.split('/')[url.split('/').length-1]==''){
@@ -41,21 +44,28 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       name: '',
       url: ''
     };
-    function serveError(){
-      res.writeHead(404, {"Content-Type": "text/html"});
-      res.write(html({
-        title: 'Error - Not found!',
-        body: markdown(not_found_md),
-        url: req.url,
-        links: []
-      }));
-      res.end();
-    }
-    function serveRedirect(url){
-      res.writeHead(302, {"Location": url});
-      res.write('<h2>Redirecting..</h2>');
-      res.end();
-    }
+    fs.readdir(dirPath, function(err, files){
+      fs.readFile(filePath, (is_dl ? 'utf8' : 'binary'), function (error, data) {
+        if (error) {
+          if(is_index){
+            filePath = filePath.slice(0,filePath.length-(is_index?9:3));
+            fs.readdir(filePath, function(err, files){
+              if(err){
+                return next();
+              } else {
+                return serveResponse(files, '');
+              }
+            });
+          } else if(is_dir_possible){
+            return res.redirect(302, req.url+'/');
+          } else {
+            return next();
+          }
+        } else {
+          return serveResponse(files, data);
+        }
+      });
+    });
     function serveResponse(files, data){
       _.each(files,function(file){
         if(file[0]=='.') return;
@@ -84,48 +94,19 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       });
       links.unshift(indexlink);
       links.unshift(toplink);
-      if(is_dl){
-        res.setHeader('Content-Length', data.length);
-        res.setHeader('Content-type', mime.lookup(filePath));
-        res.write(data, 'binary');
-      } else {
-        res.writeHead(200, {"Content-Type": "text/html"});
-        var parts = req.url.split('/');
-        var title = (parts[parts.length-1]=='')?parts[parts.length-2]:parts[parts.length-1];
-        res.write(html({
-          title: title,
-          body: markdown(data),
-          url: req.url,
-          links: links
-        }));
-      }
-      res.end();
+      var parts = req.url.split('/');
+      var title = (parts[parts.length-1]=='')?parts[parts.length-2]:parts[parts.length-1];
+      res.send(html({
+        title: title,
+        body: markdown(data),
+        url: req.url,
+        links: links
+      }));
     }
-    fs.readdir(dirPath, function(err, files){
-      fs.readFile(filePath, (is_dl ? 'utf8' : 'binary'), function (error, data) {
-        if (error) {
-          if(is_index){
-            filePath = filePath.slice(0,filePath.length-(is_index?9:3));
-            fs.readdir(filePath, function(err, files){
-              if(err){
-                return serveError();
-              } else {
-                return serveResponse(files, '');
-              }
-            });
-          } else if(is_dir_possible){
-            return serveRedirect(req.url+'/');
-          } else {
-            return serveError();
-          }
-        } else {
-          return serveResponse(files, data);
-        }
-      });
-    });
   });
+  app.use(express.static(__dirname+'/Documents'));
   var port = process.env.PORT || 8888;
-  server.listen(port);
+  app.listen(port);
   console.log('MarkShow started at port '+port+'/');
 
 });
