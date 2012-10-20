@@ -20,8 +20,6 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
   app.use(function (req, res, next) {
     var is_index = false;
     var is_dir_possible = false;
-    var is_dl = (req.url.split('/')[req.url.split('/').length-1].split('.').length > 1) && (req.url.split('.md').length == 1);
-    if(is_dl) next();
     var not_found_md = "# 404 - Not found! \n\n We couldn't find \""+req.url+"\". \n\n";
     var url = req.url;
     if(url.split('/')[url.split('/').length-1]==''){
@@ -45,7 +43,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       url: ''
     };
     fs.readdir(dirPath, function(err, files){
-      fs.readFile(filePath, (is_dl ? 'utf8' : 'binary'), function (error, data) {
+      fs.readFile(filePath, 'utf8', function (error, data) {
         if (error) {
           if(is_index){
             filePath = filePath.slice(0,filePath.length-(is_index?9:3));
@@ -61,8 +59,10 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
           } else {
             return next();
           }
-        } else {
+        } else if(filePath.slice(filePath.length-3,filePath.length)=='.md'){
           return serveResponse(files, data);
+        } else {
+          return next();
         }
       });
     });
