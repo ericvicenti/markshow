@@ -18,26 +18,22 @@ var mdDir = '/Documents';
 fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
   app.use(function (req, res, next) {
-    var is_index = false;
-    var is_dir_possible = false;
-    var not_found_md = "# 404 - Not found! \n\n We couldn't find \""+req.url+"\". \n\n";
+    var isIndex = false;
+    var isDirPossible = false;
+    var notFoundMd = "# 404 - Not found! \n\n We couldn't find \""+req.url+"\". \n\n";
     var url = req.url;
     if(url.split('/')[url.split('/').length-1]==''){
-      is_index = true;
+      isIndex = true;
       url += 'index';
     }
     var filePath = __dirname + mdDir + decodeURIComponent(url);
     if(path.basename(filePath).split('.').length == 1){
-      is_dir_possible = true;
+      isDirPossible = true;
       filePath += '.md';
     }
     var dirPath = path.dirname(filePath);
     var links = [];
     var parts = req.url.split('/').slice(0,req.url.split('/').length-2);
-    var toplink = {
-      name: '..',
-      url: '../'
-    };
     var indexlink = {
       name: '',
       url: ''
@@ -45,8 +41,8 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
     fs.readdir(dirPath, function(err, files){
       fs.readFile(filePath, 'utf8', function (error, data) {
         if (error) {
-          if(is_index){
-            filePath = filePath.slice(0,filePath.length-(is_index?9:3));
+          if(isIndex){
+            filePath = filePath.slice(0,filePath.length-(isIndex?9:3));
             fs.readdir(filePath, function(err, files){
               if(err){
                 return next();
@@ -54,7 +50,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
                 return serveResponse(files, '');
               }
             });
-          } else if(is_dir_possible){
+          } else if(isDirPossible){
             return res.redirect(302, req.url+'/');
           } else {
             return next();
@@ -93,7 +89,10 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
         }
       });
       links.unshift(indexlink);
-      links.unshift(toplink);
+      links.unshift({
+        name: '..',
+        url: '../'
+      });
       var parts = req.url.split('/');
       var title = (parts[parts.length-1]=='')?parts[parts.length-2]:parts[parts.length-1];
       res.send(html({
