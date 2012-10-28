@@ -6,6 +6,7 @@
   "dependencies": {
     "underscore": "1.4.x",
     "mime": "1.2.x",
+    "express": "3.0.x",
     "showdown": "0.2.x"
   },
   "engines": {
