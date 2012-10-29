@@ -13,7 +13,7 @@ var mime = require('mime');
 var _ = require('underscore');
 var express = require('express');
 var app = express();
-var mdDir = '/Documents';
+var mdDir = '/MarkShow';
 
 fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
@@ -81,7 +81,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
           if(name.split('.md').length>1){
             name = name.slice(0,name.length-3);
           }
-          if(!_.contains(['bootstrap'],file)) links.push({
+          links.push({
             name: name,
             url: name,
             active: req.url.split('/')[req.url.split('/').length-1]==name
@@ -103,7 +103,7 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
       }));
     }
   });
-  app.use(express.static(__dirname+'/Documents'));
+  app.use(express.static(__dirname+mdDir));
   var port = process.env.PORT || 8888;
   app.listen(port);
   console.log('MarkShow started at port '+port+'/');

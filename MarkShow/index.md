@@ -15,7 +15,7 @@ Check out how markshow can present your markdown in the [examples section](/Exam
 
 ### Contributing
 
-We could really use some great contributors to make this project really great. Head on over to the [contribution page](/contributing) to see how you can help.
+We could really use some great contributors to make this project really great. Head on over to the [contribution page](/Contributing) to see how you can help.
 
 
 ### License

@@ -32,4 +32,4 @@ Add or remove assets for your site in the existing `.assets` directory, or creat
 
 Markshow is a relatively simple node.js express application, so it is easy to customize as you wish.
 
-We are working on making markshow more extensible so you don't need to fork it to customize it. If you are up for it, we are in great need of [contributors](/contributing)!
+We are working on making markshow more extensible so you don't need to fork it to customize it. If you are up for it, we are in great need of [contributors](/Contributing)!
