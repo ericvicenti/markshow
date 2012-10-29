@@ -17,16 +17,14 @@ Test your local MarkShow in your browser at [localhost:8888/](http://localhost:8
 
 ## 3. Add your own content
 
-You are ready to start editing the markdown in `/Documents` and replacing it with your own content. All markdown in the folder is rendered as html, and the rest of the files are served up normally. The server will always display the latest markdown and files on refresh.
+You are ready to start editing the markdown in `/Documents` and replacing it with your own content. All markdown in the folder is rendered as html, and the rest of the files and folders are served up normally. The server will always display the latest markdown and files on refresh.
 
-Create infinite sub-folders, and MarkShow will list them along with their contents.
+Create infinite sub-folders, and MarkShow will list them along with their contents. Add or remove assets for your documents in the existing `.assets` directory, or create more hidden folders for your own purposes. Any directory starting with a `.` won't be listed, but it will still be made available.
+
 
 ## 4. Customize the template
 
 The template for the server is located in the root of the project in [template.html](https://github.com/ericvicenti/markshow/blob/master/template.html). It is an [underscore.js template](http://underscorejs.org/#template). Customize it to your needs, and refresh the server to see your changes.
-
-Add or remove assets for your site in the existing `.assets` directory, or create more hidden files and directories for your own purposes. Any file or directory starting with a `.` won't be listed, but it will still be made available.
-
 
 ## 5. Hack on MarkShow
 

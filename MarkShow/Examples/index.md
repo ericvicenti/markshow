@@ -1,6 +1,8 @@
 MarkShow Examples
 =================
 
+This is a MarkShow site generated from markdown, and the code is all available on [github](https://github.com/ericvicenti/markshow). For example, the markdown that generated this page can be found [here](https://raw.github.com/ericvicenti/markshow/master/MarkShow/Examples/index.md).
+
 Text Styles
 -----------
 

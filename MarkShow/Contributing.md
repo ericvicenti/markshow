@@ -16,13 +16,13 @@ There are lots of things to work on. If you want to start on one of these items,
 
 * Indexed search (spotlight-quality doc search in the toolbar)
   
-  Easiest way to implement this would probably be SQLite and and integration wiht a filesystem watcher like [watch](https://github.com/mikeal/watch)
+  Easiest way to implement this would probably be SQLite and and integration with a filesystem watcher like [watch](https://github.com/mikeal/watch)
 
 * Unit Tests
 
 * Theming
 
-  Lets try to get markshow sites (including this one) off of the horrendously overrused Bootstrap theme
+  Lets try to get markshow sites (including this one) off of the horrendously overused default Bootstrap theme
 
 * More advanced templating system
 
