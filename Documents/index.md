@@ -21,3 +21,9 @@ We could really use some great contributors to make this project really great. H
 ### License
 
 MarkShow is [MIT licensed](License). Feel free to use markshow as you wish!
+
+### Credits
+
+MarkShow was created by Eric Vicenti in Silicon Valley to make documentation easy to write and present.
+
+Built on the shoulders of powerful tools like [Showdown](https://github.com/coreyti/showdown), [Twitter Bootstrap](https://github.com/twitter/bootstrap), [node.js](http://nodejs.org/), and [express.js](http://expressjs.com/)
