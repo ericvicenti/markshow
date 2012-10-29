@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/.assets/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
   <div class="container">
@@ -16,13 +16,18 @@
             <div class="navbar-content">
               <ul class="nav">
                 <li <%= (url.split('/readMe')[0]=='') ? 'class="active"' : '' %>>
-                  <a href="/ReadMe">How to use</a> 
+                  <a href="/Usage">How to use</a> 
                 </li>
                 <li <%= (url.split('/Examples')[0]=='') ? 'class="active"' : '' %>>
                   <a href="/Examples">More Examples</a> 
                 </li>
                 <li <%= (url.split('/About')[0]=='') ? 'class="active"' : '' %>>
                   <a href="/About">About</a> 
+                </li>
+              </ul>
+              <ul class="nav pull-right">
+                <li>
+                  <a href="https://github.com/ericvicenti/markshow">Read the code on GitHub!</a> 
                 </li>
               </ul>
             </div>

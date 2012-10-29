@@ -1,7 +1,6 @@
-# MarkShow
+![Introducing Markshow](/.assets/img/markshow_banner.png)
 
-A minimal server which displays a folder of mardown as a documentation website.
-
+MarkShow is a node.js server which displays a folder of markdown as a documentation website.
 
 ## Installation
 
@@ -13,4 +12,4 @@ MarkShow is tested on node v.8.x
 
 ## License
 
-MarkShow is [MIT licensed](License).
+MarkShow is [MIT licensed](License). Feel free to use markshow as you wish!
