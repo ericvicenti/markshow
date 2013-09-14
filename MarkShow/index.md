@@ -1,18 +1,21 @@
-![Introducing Markshow](/.assets/img/markshow_banner.png)
+![Introducing MarkShow](/.assets/img/markshow_banner.png)
 
-MarkShow is a dialect of [MarkDown](http://daringfireball.net/projects/markdown/), with new restrictions, and an added feature or two.
+__The world needs an open, easy to read, and well-defined content language in order to freely communicate over the net.__ 
+In order to ensure the freedom of sharing open, rich content, MarkShow intends to deliver on these needs.
 
-Included is a basic nodejs server and implementation of markshow, based on showdown.
+MarkShow is a modern dialect of [MarkDown](http://daringfireball.net/projects/markdown/).
+
+Included is a basic server and implementation of MarkShow, based on [Showdown](https://github.com/coreyti/showdown).
 
 ### Whats new from MarkDown?
 
-The biggest difference between MarkShow and MarkDown is html!
+The biggest difference between MarkShow and MarkDown is the treatment of HTML
 
 #### HTML
 
-Markdown fully supports embedded html. This has disasterous consequences. For one, it means markdown can only be displayed in web browsers. Further, it allows people to sidestep markdown and use raw html where they see fit.
+Markdown fully supports embedded HTML. This has disasterous consequences. For one, it means markdown can only be displayed in web browsers. Further, it allows people to sidestep markdown and use raw html where they see fit.
 
-MarkShow does not allow any embedded html, because we don't think its a good idea! When we try to inject that nasty html, it looks like this: <script> alert("If this annoys you, don't use markdown!"); </script>
+MarkShow does not allow any embedded html (nor CSS, JS, etc), because we don't think its a good idea! When we try to inject that nasty html, it looks like this: <script> alert("If this annoys you, don't use markdown!"); </script>
 
 Because we exclude html from our definition, MarkShow truly is a human-readable markup!
 
@@ -39,11 +42,15 @@ We could really use some talented contributors like yourself to make this projec
 
 ### License
 
-MarkShow is [MIT licensed](License). Feel free to use markshow as you wish!
+MarkShow is [released under the Apache 2 License](License.md).
+
+You are free to use MarkShow however you'd like.
+
+If make changes to MarkShow and distribute them, you must call the project something else to avoid confusion with MarkShow.
 
 
 ### Credits
 
-MarkShow was created by Eric Vicenti in Silicon Valley to make documentation easy to write and present.
+MarkShow was created by Eric Vicenti in Silicon Valley to standardize rich text for the web.
 
-Built on the shoulders of powerful projects like [Showdown](https://github.com/coreyti/showdown), [MarkDown](http://daringfireball.net/projects/markdown/basics), [Twitter Bootstrap](https://github.com/twitter/bootstrap), [node.js](http://nodejs.org/), and [express.js](http://expressjs.com/)
+Built on the strong shoulders of projects like [MarkDown](http://daringfireball.net/projects/markdown/basics) and [Showdown](https://github.com/coreyti/showdown).

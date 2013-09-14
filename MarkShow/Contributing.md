@@ -15,6 +15,7 @@ There are lots of things to work on. If you want to start on one of these items,
 ## MarkShow Showdown
 
 - Help is greatly appreciated on cleaning this up, or integrating back with the origional [showdown](https://github.com/coreyti/showdown)!
+  - Or, hell, rewrite MarkShow toHTML entirely!
 
 - We need a test suite!
   * Port or integrate showdown tests
