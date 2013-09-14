@@ -1,6 +1,6 @@
 ![Introducing Markshow](/.assets/img/markshow_banner.png)
 
-MarkShow is a dielect of [MarkDown](http://daringfireball.net/projects/markdown/), with a new restrictions, and an added feature or two.
+MarkShow is a dialect of [MarkDown](http://daringfireball.net/projects/markdown/), with new restrictions, and an added feature or two.
 
 Included is a basic nodejs server and implementation of markshow, based on showdown.
 
