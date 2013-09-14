@@ -6,7 +6,7 @@ MarkShow is tested on node.js v.8.x
 
 1. Download or check out the repo from [github](https://github.com/ericvicenti/markshow)
 2. `npm install`
-3. `node server`
+3. `node .`
 
 For configuration and setup files to deploy markshow on a server (like [markshow.org](markshow.org)), check out [markshow.production](https://github.com/ericvicenti/markshow.production)
 
@@ -17,7 +17,7 @@ Test your local MarkShow in your browser at [localhost:8888/](http://localhost:8
 
 ## 3. Add your own content
 
-You are ready to start editing the markdown in `/Documents` and replacing it with your own content. All markdown in the folder is rendered as html, and the rest of the files and folders are served up normally. The server will always display the latest markdown and files on refresh.
+You are ready to start editing the markdown in `/MarkShow` and replacing it with your own content. All markdown in the folder is rendered as html, and the rest of the files and folders are served up normally. The server will always display the latest markdown and files on refresh.
 
 Create infinite sub-folders, and MarkShow will list them along with their contents. Add or remove assets for your documents in the existing `.assets` directory, or create more hidden folders for your own purposes. Any directory starting with a `.` won't be listed, but it will still be made available.
 
@@ -28,6 +28,6 @@ The template for the server is located in the root of the project in [template.h
 
 ## 5. Hack on MarkShow
 
-Markshow is a relatively simple node.js express application, so it is easy to customize as you wish.
+Markshow is simple node.js express application, so it is easy to hack on.
 
 We are working on making markshow more extensible so you don't need to fork it to customize it. If you are up for it, we are in great need of [contributors](/Contributing)!

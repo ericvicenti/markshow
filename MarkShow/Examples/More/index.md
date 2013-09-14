@@ -31,6 +31,23 @@ Headings
 	###### Heading - H6
 
 
+
+#named-headers# Named Headers
+
+A heading can have a name, which applies an ID to the header:
+
+#linkme## Section Heading ##
+
+
+	#linkme## Section Heading ##
+
+This is useful because now we can easily link to the section:
+
+See the [section heading](/Examples/More/#linkme)
+
+
+	See the [section heading](/Examples/More/#linkme)
+
 Code and Quotes
 ---------------
 
@@ -46,17 +63,20 @@ Code and Quotes
 			alert('test');
 		}
 
+Code blocks can also be paragraphs designated with ``` before and after it.
+
+
 ### Blockquotes
 
 > This is the style of a blockquote
 >
 > ~ Quote Author, 2012
  
-
-	> This is the style of a blockquote
-	>
-	> ~ Quote Author, 2012
-
+```
+> This is the style of a blockquote
+>
+> ~ Quote Author, 2012
+```
 
 Lists
 -----
@@ -100,6 +120,8 @@ Unordered lists can be made with the following patterns:
 
 ### Ordered
 
+Ordered lists are made with numbers and periods:
+
 1. An
 1. Ordered
 2. List
@@ -114,7 +136,6 @@ Unordered lists can be made with the following patterns:
 		1. other
 		3. lists
 
-Ordered lists are made with numbers:
 
 	1. An
 	1. Ordered

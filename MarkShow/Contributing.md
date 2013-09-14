@@ -1,29 +1,34 @@
 # Contributors
 
-MarkShow needs help!
+MarkShow needs great contributors!
 
-## Testing
+There are lots of things to work on. If you want to start on one of these items, make an new issue, assign yourself to it, fork the code, and get hacking!
 
-Feel free to test the server and code to whatever extent you'd like. File lots of [issues](https://github.com/ericvicenti/markshow/issues). I can't say that I will personally be able address them all, but I'd like to get them all in the open so somebody in the community can jump in and help.
+## MarkShow Spec
 
-## Ideas
+- For shortcomings and ambiguities in the spec, please file them as [issues](https://github.com/ericvicenti/markshow/issues)!
 
-There are lots of things to work on. If you want to start on one of these items, make an new issue, assign yourself to it, fork the code, and we will all collaborate and help you on it.
+- If there is determination in the community, we can revise this example-spec to a more formal RFC
 
-* NPM Modularity
+- Feel free to write improved docs or make pull requests
 
-  Lets work on setting up markshow as an installable and extensible npm module.
+## MarkShow Showdown
+
+- Help is greatly appreciated on cleaning this up, or integrating back with the origional [showdown](https://github.com/coreyti/showdown)!
+
+- We need a test suite!
+  * Port or integrate showdown tests
+  * Test html escaping
+  * Test identified headers
+
+## MarkShow Server Features
 
 * Indexed search (spotlight-quality doc search in the toolbar)
   
-  Easiest way to implement this would probably be SQLite and and integration with a filesystem watcher like [watch](https://github.com/mikeal/watch)
-
-* Unit Tests
+  Easiest way to implement this would probably be [SQLite Full Text Search](http://www.sqlite.org/fts3.html)
 
 * Theming
 
-  Lets try to get markshow sites (including this one) off of the horrendously overused default Bootstrap theme
+  Lets try to get markshow sites such as this one off of the horrendously overused default Bootstrap theme
 
-* More advanced templating system
-
-* Support for a more advanced markdown dialect
+* Nicer templating system

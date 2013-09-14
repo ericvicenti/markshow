@@ -1,10 +1,12 @@
 // markshow documentation server
-//
-// npm install -d
-// node server
+
+// cd MarkShow
+// npm install
+// node .
+
 
 var http = require('http');
-var Showdown = require('showdown');
+var Showdown = require(__dirname+'/showdown');
 var converter = new Showdown.converter();
 var markdown = converter.makeHtml;
 var fs = require('fs');
@@ -15,18 +17,22 @@ var express = require('express');
 var app = express();
 var mdDir = '/MarkShow';
 
-fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) {
+var mainDir = __dirname + '/..';
+
+var mainTitle = 'MarkShow';
+
+fs.readFile(mainDir + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
   app.use(function (req, res, next) {
     var isIndex = false;
     var isDirPossible = false;
     var notFoundMd = "# 404 - Not found! \n\n We couldn't find \""+req.url+"\". \n\n";
     var url = req.url;
-    if(url.split('/')[url.split('/').length-1]==''){
+    if(url.split('/')[url.split('/').length-1] == ''){
       isIndex = true;
       url += 'index';
     }
-    var filePath = __dirname + mdDir + decodeURIComponent(url);
+    var filePath = mainDir + mdDir + decodeURIComponent(url);
     if(path.basename(filePath).split('.').length == 1){
       isDirPossible = true;
       filePath += '.md';
@@ -69,11 +75,11 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
           var name = dirPath.split('/').pop();
           var urlParts = req.url.split('/');
           urlParts.pop();
-          var url = urlParts.join('/');
+          var url = urlParts.join('/') + '/';
           indexlink = {
             name: name,
             url: url,
-            active: req.url==url+'/',
+            active: req.url==url,
             bold: true
           }
         } else {
@@ -93,19 +99,23 @@ fs.readFile(__dirname + '/template.html', 'utf8', function (error, templateStr) 
         name: '..',
         url: '../'
       });
-      var parts = req.url.split('/');
-      var title = (parts[parts.length-1]=='')?parts[parts.length-2]:parts[parts.length-1];
+      var parts =  req.url.split('/');
+      var title = (parts[parts.length-1] == '') ? parts[parts.length-2] : parts[parts.length-1];
       res.send(html({
-        title: title,
+        title: mainTitle + (title ? ' | '+title : ''),
         body: markdown(data),
         url: req.url,
         links: links
       }));
     }
   });
-  app.use(express.static(__dirname+mdDir));
-  var port = process.env.PORT || 8888;
-  app.listen(port);
-  console.log('MarkShow started at port '+port+'/');
 
+  app.use(express.static(mainDir+mdDir));
+
+  var port = process.env.PORT || 8888;
+  app.listen(port, function(err){
+    if(err) console.error(err);
+    else console.log('MarkShow started at http://localhost:'+port+'/');
+  });
+  
 });

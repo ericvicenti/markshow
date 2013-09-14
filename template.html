@@ -7,6 +7,11 @@
     <link href="/.assets/favicon.ico" rel="icon" type="image/ico">
     <link href="/.assets/css/bootstrap.css" rel="stylesheet">
     <link href="/.assets/css/markshow.css" rel="stylesheet">
+    
+    <!-- font awesome! -->
+<!--     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+ --> 
     <script type="text/javascript">
       var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-35936407-1']); _gaq.push(['_trackPageview']);
       (function() {
@@ -17,53 +22,52 @@
     </script>
   </head>
   <body>
+
+<header class="navbar navbar-default navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <a class="brand" href="/">MarkShow</a>
-            <div class="navbar-content">
-              <ul class="nav">
-                <li <%= (url.split('/Usage')[0]=='') ? 'class="active"' : '' %>>
-                  <a href="/Usage">How to use</a> 
-                </li>
-                <li <%= (url.split('/Examples')[0]=='') ? 'class="active"' : '' %>>
-                  <a href="/Examples">Examples</a> 
-                </li>
-                <li <%= (url.split('/Contributing')[0]=='') ? 'class="active"' : '' %>>
-                  <a href="/Contributing">Contribute</a> 
-                </li>
-              </ul>
-              <ul class="nav pull-right">
-                <li>
-                  <a href="https://github.com/ericvicenti/markshow">Read the code on GitHub!</a> 
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div class="navbar-header">
+      <a href="../" class="navbar-brand">MarkShow</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li <%= (url.split('/Usage')[0]=='') ? 'class="active"' : '' %>>
+          <a href="/Usage">How to use</a> 
+        </li>
+        <li <%= (url.split('/Examples')[0]=='') ? 'class="active"' : '' %>>
+          <a href="/Examples">Examples</a> 
+        </li>
+        <li <%= (url.split('/Contributing')[0]=='') ? 'class="active"' : '' %>>
+          <a href="/Contributing">Contribute</a> 
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li>
+          <a href="https://github.com/ericvicenti/markshow">Fork us on <i class="icon-github-sign"></i> GitHub!</a> 
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="list-group">
+        <% _.each(links, function(link){ %>
+          <% if(link.name=='') return; %>
+          <% if(link.bold){ link.name = '<b>'+link.name+'</b>'; } %>
+          <a class="list-group-item <%= link.active ? 'active' : '' %>" href="<%=link.url%>"><%=link.name%></a>
+        <% }); %>
       </div>
-      <div class="row">
-        <div class="span4">
-          <div>
-            <ul class="nav nav-list well">
-              <% _.each(links, function(link){ %>
-                <% if(link.name=='') return; %>
-                <% if(link.bold){ link.name = '<b>'+link.name+'</b>'; } %>
-                <li<%= link.active ? ' class="active"' : '' %>><a href="<%=link.url%>"><%=link.name%></a></li>
-              <% }); %>
-            </ul>
-          </div>
-        </div>
-        <div class="span8">
-          <%=body%>
-        </div>
-      </div>
-      <hr style="margin-top:50px;">
+    </div>
+    <div class="col-md-8">
+      <%=body%>
     </div>
   </div>
-  <div></div>
-  <div style="text-align: center; color: grey; margin-bottom: 50px; font-size: 12px;">Copyright &copy; 2012 XYZ</div>
+  <hr style="margin-top:50px;">
+</div>
+
+<div style="text-align: center; color: grey; margin-bottom: 50px; font-size: 12px;">Copyright &copy; 2012 XYZ</div>
+
   </body>
 </html>
