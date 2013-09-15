@@ -42,7 +42,7 @@ We could really use some talented contributors like yourself to make this projec
 
 ### License
 
-MarkShow is [released under the Apache 2 License](License.md).
+MarkShow is [released under the MIT License](License.md).
 
 You are free to use MarkShow however you'd like.
 
