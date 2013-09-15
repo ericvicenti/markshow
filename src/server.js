@@ -7,7 +7,7 @@
 
 var http = require('http');
 var MarkShow = require(__dirname+'/markshow');
-var converter = new MarkShow.converter();
+var converter = new MarkShow();
 var markdown = converter.makeHtml;
 var fs = require('fs');
 var path = require('path');
