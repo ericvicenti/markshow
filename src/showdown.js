@@ -1109,14 +1109,14 @@ var _DoBlockQuotes = function(text) {
     /gm, function(){...});
   */
 
-  text = text.replace(/((^[ \t]*>[ \t]?.+\n(.+\n)*\n*)+)/gm,
+  text = text.replace(/((^[ \t]*&gt;[ \t]?.+\n(.+\n)*\n*)+)/gm,
     function(wholeMatch,m1) {
       var bq = m1;
 
       // attacklab: hack around Konqueror 3.5.4 bug:
       // "----------bug".replace(/^-/g,"") == "bug"
 
-      bq = bq.replace(/^[ \t]*>[ \t]?/gm,"~0"); // trim one level of quoting
+      bq = bq.replace(/^[ \t]*&gt;[ \t]?/gm,"~0"); // trim one level of quoting
 
       // attacklab: clean up hack
       bq = bq.replace(/~0/g,"");
