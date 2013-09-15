@@ -6,8 +6,8 @@
 
 
 var http = require('http');
-var Showdown = require(__dirname+'/showdown');
-var converter = new Showdown.converter();
+var MarkShow = require(__dirname+'/markshow');
+var converter = new MarkShow.converter();
 var markdown = converter.makeHtml;
 var fs = require('fs');
 var path = require('path');

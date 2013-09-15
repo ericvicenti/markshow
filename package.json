@@ -1,12 +1,36 @@
 {
   "name": "markshow",
-  "main": "src/server",
-  "version": "0.1.0",
+  "main": "src/markshow",
+  "version": "0.2.0",
   "description": "A markdown dialect, complete with basic server and showdown-based html generator.",
-  "author": "Eric Vicenti <ericvicenti@gmail.com>",
+  "readmeFilename": "ReadMe.md",
+  "author": {
+    "name": "Eric Vicenti",
+    "email": "ericvicenti@gmail.com"
+  },
   "dependencies": {
-    "underscore": "1.4.x",
+    "underscore": "1.5.x",
     "mime": "1.2.x",
     "express": "3.0.x"
+  },
+  "bugs": {
+    "url": "https://github.com/ericvicenti/markshow/issues"
+  },
+  "keywords": [
+    "rich text",
+    "content",
+    "human readable",
+    "human",
+    "html",
+    "text",
+    "links",
+    "image"
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericvicenti/markshow"
   }
 }
