@@ -6,10 +6,10 @@ This is a MarkShow site generated from markdown, and the code is all available o
 Text Styles
 -----------
 
-Text can be _emphesized_, or **over emphesized** with *asterisks* or __underscores__
+Text can be _emphasized_, or **over emphasized** with *asterisks* or __underscores__
 
 ```
-Text can be _emphesized_, or **over emphesized** with *asterisks* or __underscores__
+Text can be _emphasized_, or **over emphasized** with *asterisks* or __underscores__
 ```
 
 Example `chunks of code` can be inlined
