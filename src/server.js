@@ -1,9 +1,3 @@
-// markshow documentation server
-
-// cd MarkShow
-// npm install
-// node .
-
 
 var http = require('http');
 var MarkShow = require(__dirname+'/markshow');
