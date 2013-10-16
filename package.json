@@ -1,6 +1,6 @@
 {
   "name": "markshow",
-  "main": "src/markshow",
+  "main": "src/server",
   "version": "0.2.0",
   "description": "A markdown dialect, complete with basic server and showdown-based html generator.",
   "readmeFilename": "ReadMe.md",
@@ -12,6 +12,16 @@
     "underscore": "1.5.x",
     "mime": "1.2.x",
     "express": "3.0.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-less": "0.6.x",
+    "grunt-contrib-cssmin": "0.6.x",
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-watch": "0.5.x",
+    "grunt-contrib-concat": "0.3.x",
+    "grunt-contrib-uglify": "0.2.x"
   },
   "bugs": {
     "url": "https://github.com/ericvicenti/markshow/issues"

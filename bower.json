@@ -1,0 +1,9 @@
+{
+  "name": "markshow",
+  "version": "0.1.0",
+  "dependencies": {
+    "underscore": "~1.4.3",
+    "jquery": "1.10.x",
+    "bootstrap": "3.0.x"
+  }
+}

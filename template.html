@@ -5,13 +5,12 @@
     <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/.assets/favicon.ico" rel="icon" type="image/ico">
-    <link href="/.assets/css/bootstrap.css" rel="stylesheet">
-    <link href="/.assets/css/markshow.css" rel="stylesheet">
+    <% if(useMin){ %>
+      <link href="/.assets/style/markshow.min.css" rel="stylesheet">    
+    <% } else { %>
+      <link href="/.assets/style/markshow.css" rel="stylesheet">    
+    <% } %>
     
-    <!-- font awesome! -->
-<!--     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
- --> 
     <script type="text/javascript">
       var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-35936407-1']); _gaq.push(['_trackPageview']);
       (function() {
@@ -76,11 +75,13 @@
   <hr style="margin-top:50px;">
 </div>
 
-<div style="text-align: center; color: grey; margin-bottom: 50px; font-size: 12px;">Copyright &copy; 2012-2013 Eric Vicenti. <a href="/License">MIT Licenced</a>.</div>
+<div style="text-align: center; color: grey; margin-bottom: 50px; font-size: 12px;">Copyright &copy; 2012-2013 Eric Vicenti. <a href="/License">MIT Licensed</a>.</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/.assets/js/bootstrap.min.js"></script>
-
-
+  <% if(useMin){ %>
+    <script src="/.assets/js/main.min.js"></script>
+  <% } else { %>
+    <script src="/.assets/js/main.js"></script>
+  <% } %>
+  
   </body>
 </html>

@@ -13,7 +13,9 @@ var mdDir = '/MarkShow';
 
 var mainDir = __dirname + '/..';
 
-var mainTitle = 'MarkShow';
+var config = require('../config');
+
+var mainTitle = config.title || 'MarkShow';
 
 fs.readFile(mainDir + '/template.html', 'utf8', function (error, templateStr) {
   var html = _.template(templateStr);
@@ -99,14 +101,15 @@ fs.readFile(mainDir + '/template.html', 'utf8', function (error, templateStr) {
         title: mainTitle + (title ? ' | '+title : ''),
         body: markdown(data),
         url: req.url,
-        links: links
+        links: links,
+        useMin: config.useMin
       }));
     }
   });
 
   app.use(express.static(mainDir+mdDir));
 
-  var port = process.env.PORT || 8888;
+  var port = config.port || 8888;
   app.listen(port, function(err){
     if(err) console.error(err);
     else console.log('MarkShow started at http://localhost:'+port+'/');

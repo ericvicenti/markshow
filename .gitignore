@@ -1,2 +1,7 @@
 *.DS_Store
 node_modules/*
+MarkShow/.assets/libs
+MarkShow/.assets/img/glyphicons*
+MarkShow/.assets/js/main.*
+MarkShow/.assets/style/markshow.css
+MarkShow/.assets/style/markshow.min.css
